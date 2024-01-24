@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'edit_style.css' %}" />
+    <title>{{ product.title }} Details</title>
+</head>
+<body>
+    <h1>{{ product.title }} Details</h1>
+    <p>Price: ${{ product.price }}</p>
+    <img src="{{ product.image_url }}" alt="{{ product.title }}">
+    <!-- Add other details as needed -->
+    <div class="add">
+        <div>
+        {% if request.session.admin %}
+            <a href="{% url 'edit_product' product_id=product.id %}">Edit</a>
+        {% endif %}
+        </div>
+        <div class="mee">
+            <a href="{% url 'add_to_cart' product_id=product.id%}">Add to cart</a>
+        </div>
+    </div>
+</body>
+</html>

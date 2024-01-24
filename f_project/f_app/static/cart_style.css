@@ -1,0 +1,8 @@
+.order{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pur{
+    margin-right: 1200px;
+}

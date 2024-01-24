@@ -1,0 +1,18 @@
+<!-- update_cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Cart</title>
+</head>
+<body>
+    <h1>Update Quantity</h1>
+    <form method="post" action="{% url 'update_cart' cart_id=cart_item.id %}">
+        {% csrf_token %}
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" min="1" value="{{ cart_item.quantity }}" required><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

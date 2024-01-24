@@ -1,0 +1,56 @@
+.parent{
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem  20rem 0 20rem;
+    background-color: rgb(43, 226, 43);
+   
+
+}
+
+.lcontent{
+    display: flex;
+    display: inline-flex;
+}
+
+.rcontent{
+    
+    margin-left: 20px;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+h1{
+    margin-left: 520px;
+}
+
+
+
+.wel{
+    background-color: rgb(43, 144, 226);
+}
+
+.info{
+   display: block;
+}
+
+.fill{
+    margin-left: 20px;
+    display: block;
+    margin-top: 10px;
+}
+
+.shap{
+    display: inline-flex;
+    margin-left: 30px;
+    
+
+}
+
+input{
+    border: 3px solid black;
+}
+
+.contener{
+    display: block;
+
+}

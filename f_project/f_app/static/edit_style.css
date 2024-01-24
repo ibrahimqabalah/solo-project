@@ -1,0 +1,13 @@
+.add{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mee{
+    margin-right: 1070px;
+}
+
+img{
+    width: 400px;
+    height: 400px;
+}

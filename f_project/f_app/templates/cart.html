@@ -1,0 +1,29 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cart_style.css' %}" />
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Your Shopping Cart</h1>
+    <div class="order">
+        <a href="/products">Back To Products</a>
+        <div class="pur">
+            <a href="/purchase">Purchase</a>
+        </div>
+    </div>
+    {% for item in cart_items %}
+        <div>
+            <h2>{{ item.product_title }}</h2>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Total price: {{item.get_total_price}}</p>
+            <a href="{% url 'update_cart' cart_id=item.id %}">Update Quantity</a>
+            <a href="{% url 'delete_from_cart' cart_id=item.id %}">Remove from Cart</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

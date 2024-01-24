@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'product_style.css' %}" />
+    <title>Products</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="pro">
+        Welcome {{request.session.guest}}
+        <a href="/logout">Logout</a>
+        <a href="/about_us">About us</a>
+        <a href="/cart">View Cart</a>
+        <br>
+        <br>
+    </div>
+    {% if request.session.admin %}
+        <div class="add">
+            <a href="/products/new">Add New Product</a>
+        </div>
+    {% endif %}
+    <h1>Products</h1>
+    {% for product in products %}
+        <div class="pron">
+            <h3>{{ product.title }}</h3>
+            <p>Price: ${{ product.price }}</p>
+            <img src="{{ product.image_url }}" alt="{{ product.title }}">
+            <div class="see">
+                <a href="{% url 'product_details' product_id=product.id %}">View</a>
+                <a href="{% url 'add_to_cart' product_id=product.id%}">Add to cart</a>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>

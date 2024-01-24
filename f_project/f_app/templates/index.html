@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index_style.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wel">
+      <br>
+      <br>
+      <h1>Welcome To Flower Station</h1>
+      <br>
+      <br>
+    </div>
+    <div class="parent">
+      <form method="post" action="/register">
+          {%csrf_token%}
+          <h2>Creat Your Account</h2>
+          <div class="lcontent">
+              <div class="contener">
+                <p>First Name:</p>
+                <p>Last Name:</p>
+                <p>Email :</p>
+                <p>Password:</p>
+                <p>Confirm:</p>
+              </div>
+              <br>
+              <div class="rcontent">
+                <input type="text" name="fname"></p>
+                <input type="text" name="lname"></p>
+                <input type="text" name="email"></p>
+                <input type="password" name="password"></p>
+                <input type="password" name="confirm"></p>
+              </div>
+          </div>    
+          <p><input type="submit" value="Register!"></p>
+      </form>
+      <form method="post" action="/login">
+          {%csrf_token%}
+          <h2>Login To Your Account</h2>
+          <div class="shap">
+            <div class="info">
+              <p>Email:</p>
+              <p>Password:</p>
+            </div>
+            <div class="fill">
+              <input type="text" name="email"></p>
+              <input type="password" name="password"></p>
+            </div>
+          </div>
+          <p><input type="submit" value="Login!"></p>
+          
+      </form>
+  
+  
+  </div>
+  {% if messages %}
+  <ul class="messages">    
+      {% for message in messages %}    
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+      {% endfor %}
+  </ul>
+  {% endif %}
+  </body>
+</html>
